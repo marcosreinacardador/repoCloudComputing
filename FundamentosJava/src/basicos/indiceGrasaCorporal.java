@@ -21,23 +21,44 @@ pista: PARA LEER DE TECLADO USAD LA CLASE SCANNER
 public class indiceGrasaCorporal {
 	
 	public static double pideDatos() {
-		double imc = 0.0;
-		double peso = 0.0;
-		double altura = 0.0;
+		double imc = 0;
+		double peso = 0;
+		double altura = 0;
 		
-		Scanner metePeso = null;
-		Scanner meteAltura = null;
+		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("Intruduzca PESO: ");
-		metePeso = new Scanner(System.in);
+		peso = scanner.nextDouble();
 		System.out.println("introduzca ALTURA");
-		meteAltura = new Scanner(System.in);
+		altura = scanner.nextDouble();
+		
+		imc = peso / Math.pow(altura, 2);
+		
+		System.out.println("Tu altura: " + altura + 
+		           " y tu peso: " + peso +
+		           " tu IMC es de: " + Math.round(imc) +
+		           " entonces, estoy  ");
+		
+		if ( Math.round(imc) < 16 ) {
+			System.out.println("Desnutrido");
+		} else if ( Math.round(imc) >= 16 & Math.round(imc) < 18 ) {
+			System.out.println("Delgado");
+		} else if ( Math.round(imc) >= 18 & Math.round(imc) < 25 ) {
+			System.out.println("Ideal");
+		} else if ( Math.round(imc) >= 25 & Math.round(imc) < 31 ) {
+			System.out.println("Sobrepeso");
+		} else if (Math.round(imc) > 31 ) {
+			System.out.println("Obeso");
+		}
+		
+		
 		
 		return imc;
 	}
 
 	public static void main(String[] args) {
 		
+		pideDatos();
 
 	}
 
