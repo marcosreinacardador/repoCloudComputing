@@ -184,8 +184,9 @@ public class EjercicosBasicos {
 	public static int cuentaVeces(String cadena, char caracter) {
 
 		int contador = 0;
-
-		for (int i = 0; i < cadena.length(); i++) {
+		int longitud = cadena.length();
+		
+		for (int i = 0; i < longitud; i++) {
 
 			if (cadena.charAt(i) == caracter) {
 
@@ -202,20 +203,21 @@ public class EjercicosBasicos {
 	/*
 	 * 
 	 * 2.1) HACER UN MÉTODO QUE RECIBA UNA CADENA Y UN CARACTER Y DIGA la última
-	 * 
-	 * 
-	 * 
 	 * posición donde aparece ese caracter en esa cadena. Si no está, devuelve -1
-	 * 
-	 * 
-	 * 
 	 * "hola" a --> 3 "maja" a --> 3 "conejo" i --> -1
 	 * 
 	 */
 
 	public static int ultimaSilaba(String cadena, char caracter) {
 
-		for (int i = cadena.length() - 1; i >= 0; i++) {
+		
+		  int posUltima= -1;
+		  
+		  	posUltima = cadena.lastIndexOf(caracter);
+		  
+		  return posUltima;
+		 
+/*		for (int i = cadena.length() - 1; i >= 0; i++) {
 
 			if (cadena.charAt(i) == caracter) {
 
@@ -226,7 +228,7 @@ public class EjercicosBasicos {
 		}
 
 		return -1;
-
+*/
 	}
 
 	/*
@@ -235,31 +237,38 @@ public class EjercicosBasicos {
 	 * 
 	 */
 
-	public static void numeroPar(int numero) {
+	public static boolean esPar(int numero) {
+		
+		return (numero % 2 == 0);
+//
+//		if (numero % 2 == 0) {
+//
+//			System.out.println(" Par");
+//
+//		} else {
+//
+//			System.out.println(" Impar");
+//
+//		}
 
-		if (numero % 2 == 0) {
-
-			System.out.println(" Par");
-
-		} else {
-
-			System.out.println(" Impar");
-
-		}
 		
 		
 	/*  4) HACER UN MÉTODO QUE LE PIDA AL USUARIO SU EDAD Y LE DIGA SI ES MAYOR DE
-		 * 
-		 * 
-		 * 
 		 * EDAD O NO mayorDeEdad  */
 	}
-		public static void pideEdad(int edad) {
-			if (edad >= 18) {
-				System.out.println("Eres mayor de edad");
-			} else {
-				System.out.println("Eres menor de edad");
-			}
+		public static void pideEdad() {
+			
+			Scanner scanner = null;
+			int edad = 0;
+			String mensaje = null;
+			
+			scanner = new Scanner(System.in);
+			System.out.println("Introduzca la edad: ");
+			edad = scanner.nextInt();
+			
+			mensaje = (edad<=18) ? "MAYOR DE EDAD" : "MENOR DE EDAD";
+			System.out.println(mensaje);
+			
 		}
 
 	/*	5) HACER UN MÉTODO QUE RECIBA UNA NOTA DE 0 A 10 Y DIGA
@@ -267,24 +276,43 @@ public class EjercicosBasicos {
 	 * 
 	 */
 		
-		public static String clasificarNota(int nota, String calificacion) {
+		public static String traducirNota(int nota) {
 			
-			if( nota >= 5 & nota <= 6 ) {
-				System.out.println("Estas aprobado por los pelos");
-			} else if (nota > 6 & nota <= 7) {
-				System.out.println("Tienes un BIEN");
-			} else if (nota > 7 & nota <= 8) {
-				System.out.println("Tienes un NOTABLE");
-			}else if (nota > 8 & nota <= 10) {
-				System.out.println("Tienes un SOBRESALIENTE");	
-			} else {
-				System.out.println("Estas SUSPENSO");
-			}
-			return calificacion;
-		}
+			String notaAlfabetica = null;
+			
+				notaAlfabetica = switch (nota) {
+						case 0, 1, 2, 3, 4 -> "SUSPENSO";
+						case 5 -> "APROBADO";
+						case 6 -> "BIEN";
+						case 7, 8 -> "NOTABLE";
+						case 9, 10 -> "SOBRESALIENTE";
+						default -> "ERROR";
+					};
+					return notaAlfabetica;
+				}
+			
+		 //6) HACER UN MÉTODO QUE RECIBA UNA CADENA Y LA DEVUELVA ALREVÉS invertirCadena
 		
+	 public static String inverterCadena(String cad) {
+		 
+		 String cadreves = null;
+		 
+		 	cadreves = new StringBuilder(cad).reverse().toString();
+		 
+		 return cadreves;
+	 }
 		
-	
+	// 7) HACER UN PROGRAMA QUE MUESTRE LA SECUENCIA 3, 6, 9, 12, 15 ...99 deTresEnTres
+	 
+	 public static void mostrarSecuencia() {
+		 int i = 3;
+		 System.out.print(i);
+		 for ( ; i <= 99; i+=3) {
+			 System.out.print(", " + i);
+		 }
+	 }
+	 
+	 
 	//*************************************************************************************************************
 	// Main
 
@@ -294,8 +322,6 @@ public class EjercicosBasicos {
 
 		char caracter = 'o';
 		
-		int nota = 8;
-
 		Scanner sc = new Scanner(System.in);
 
 		// primer ejercicio
@@ -336,21 +362,17 @@ public class EjercicosBasicos {
 
 		System.out.println("El número " + metoNumero + " es ");
 
-		numeroPar(metoNumero);
+		esPar(metoNumero);
 		
-		//quinto ejercicio
-		
-		System.out.println("Introduce tu edad: ");
-		int metoEdad = sc.nextInt();
-		
-		pideEdad(metoEdad);
-		
+				
 		//sexto ejercicio
-		
-		
-		clasificarNota(nota, calificacion);
-		
+		System.out.println(traducirNota(8));
 
+		//septimo ejercicio
+		mostrarSecuencia();
+		
+		
+		
 	}
 
 }
