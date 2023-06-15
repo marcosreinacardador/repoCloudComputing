@@ -336,7 +336,7 @@ public class EjercicosBasicos {
 
 		}
 
-		// segundo ejercicio
+		// segundo ejercicio ccc
 
 		int cantidad = cuentaVeces(cadena, caracter);
 
