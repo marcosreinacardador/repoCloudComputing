@@ -324,7 +324,7 @@ public class EjercicosBasicos {
 		
 		Scanner sc = new Scanner(System.in);
 
-		// primer ejercicio
+		// primer ejercicio cccc
 
 		if (perteneceACadena(cadena, caracter)) {
 
