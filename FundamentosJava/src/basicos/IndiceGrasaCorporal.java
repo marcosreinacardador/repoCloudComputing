@@ -32,6 +32,8 @@ public class IndiceGrasaCorporal {
 		System.out.println("introduzca ALTURA");
 		altura = scanner.nextDouble();
 		
+		scanner.close();
+		
 		imc = peso / Math.pow(altura, 2);
 		
 		System.out.println("Tu altura: " + altura + 
