@@ -18,7 +18,7 @@ import java.util.Scanner;
 pista: PARA LEER DE TECLADO USAD LA CLASE SCANNER
   */
 
-public class indiceGrasaCorporal {
+public class IndiceGrasaCorporal {
 	
 	public static double pideDatos() {
 		double imc = 0;
