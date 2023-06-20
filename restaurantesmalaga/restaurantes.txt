@@ -1,5 +1,5 @@
 McDonadls
-MC Donadls Plza de la Marina
+MC Donadls Plza de la Marina 1
 www.mcdonalds.com
 https://goo.gl/maps/DUmVjnSZeX6Y9n448
 36.7184846
@@ -7,7 +7,7 @@ https://goo.gl/maps/DUmVjnSZeX6Y9n448
 centro
 hamburguesas, patas fritas, helados
 McDonadls
-MC Donadls Plza de la Marina
+MC Donadls Plza de la Marina 2
 www.mcdonalds.com
 https://goo.gl/maps/DUmVjnSZeX6Y9n448
 36.7184846
@@ -15,7 +15,23 @@ https://goo.gl/maps/DUmVjnSZeX6Y9n448
 centro
 hamburguesas, patas fritas, helados
 McDonadls
-MC Donadls Plza de la Marina
+MC Donadls Plza de la Marina 3
+www.mcdonalds.com
+https://goo.gl/maps/DUmVjnSZeX6Y9n448
+36.7184846
+-4.4909181
+centro1
+hamburguesas, patas fritas, helados
+McDonadlsXX
+MC Donadls Plza de la Marina 4
+www.mcdonalds.com
+https://goo.gl/maps/DUmVjnSZeX6Y9n448
+36.7184846
+-4.4909181
+centro
+hamburguesas, patas fritas, helados1
+McDonadls
+MC Donadls Plza de la Marina 5
 www.mcdonalds.com
 https://goo.gl/maps/DUmVjnSZeX6Y9n448
 36.7184846
@@ -23,7 +39,15 @@ https://goo.gl/maps/DUmVjnSZeX6Y9n448
 centro
 hamburguesas, patas fritas, helados
 McDonadls
-MC Donadls Plza de la Marina
+MC Donadls Plza de la Marina 6
+www.mcdonalds.com
+https://goo.gl/maps/DUmVjnSZeX6Y9n448
+36.7184846
+-4.4909181
+centro
+hamburguesas, patas fritas, helados1
+McDonadlsXX
+MC Donadls Plza de la Marina 7
 www.mcdonalds.com
 https://goo.gl/maps/DUmVjnSZeX6Y9n448
 36.7184846
@@ -31,7 +55,23 @@ https://goo.gl/maps/DUmVjnSZeX6Y9n448
 centro
 hamburguesas, patas fritas, helados
 McDonadls
-MC Donadls Plza de la Marina
+MC Donadls Plza de la Marina 8
+www.mcdonalds.com
+https://goo.gl/maps/DUmVjnSZeX6Y9n448
+36.7184846
+-4.4909181
+centro
+hamburguesas, patas fritas, helados1
+McDonadls
+MC Donadls Plza de la Marina 9
+www.mcdonalds.com
+https://goo.gl/maps/DUmVjnSZeX6Y9n448
+36.7184846
+-4.4909181
+centro1
+hamburguesas, patas fritas, helados
+McDonadls
+MC Donadls Plza de la Marina 10
 www.mcdonalds.com
 https://goo.gl/maps/DUmVjnSZeX6Y9n448
 36.7184846
@@ -39,7 +79,7 @@ https://goo.gl/maps/DUmVjnSZeX6Y9n448
 centro
 hamburguesas, patas fritas, helados
 McDonadls
-MC Donadls Plza de la Marina
+MC Donadls Plza de la Marina 11
 www.mcdonalds.com
 https://goo.gl/maps/DUmVjnSZeX6Y9n448
 36.7184846
@@ -47,47 +87,7 @@ https://goo.gl/maps/DUmVjnSZeX6Y9n448
 centro
 hamburguesas, patas fritas, helados
 McDonadls
-MC Donadls Plza de la Marina
-www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
-centro
-hamburguesas, patas fritas, helados
-McDonadls
-MC Donadls Plza de la Marina
-www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
-centro
-hamburguesas, patas fritas, helados
-McDonadls
-MC Donadls Plza de la Marina
-www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
-centro
-hamburguesas, patas fritas, helados
-McDonadls
-MC Donadls Plza de la Marina
-www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
-centro
-hamburguesas, patas fritas, helados
-McDonadls
-MC Donadls Plza de la Marina
-www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
-centro
-hamburguesas, patas fritas, helados
-McDonadls
-MC Donadls Plza de la Marina
+MC Donadls Plza de la Marina 4
 www.mcdonalds.com
 https://goo.gl/maps/DUmVjnSZeX6Y9n448
 36.7184846

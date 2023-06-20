@@ -87,7 +87,35 @@ public class Restaurante {
 	public void setEspecialidades(List<String> especialidades) {
 		this.especialidades = especialidades;
 	}
+
+
+	@Override
+	public String toString() {
+		return "\n" + 
+				" nombre= " + nombre + "\n" + 
+				" direccion= " + direccion + "\n" + 
+				" web= " + web + "\n" + 
+				" fichaGoogle= " + fichaGoogle + "\n" + 
+				" latitud= " + latitud + "\n" + 
+				" longitud= " + longitud + "\n" + 
+				" barrio= " + barrio + "\n" + 
+				" especialidades= " + especialidades + "\n";
+	}
 	
-	
+	@Override
+	public boolean equals(Object obj) {   //vamos hacer el equals de la clase restaurante
+		boolean iguales = false;
+		
+		if(obj != null) 
+		{
+			if(obj instanceof Restaurante r)    // quiero ver si es un restaurante  si el objeto es una instancia de restaurante si se cumple
+			{
+				// para mi dos resturantes son iguales si tienen misma dirección
+				iguales = this.direccion.equals(r.direccion);    // comparo dos string con equals
+			}
+		}
+		
+		return iguales;
+	}
 	
 }

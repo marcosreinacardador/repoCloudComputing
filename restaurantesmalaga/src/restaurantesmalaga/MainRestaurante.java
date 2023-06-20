@@ -54,7 +54,7 @@ public class MainRestaurante {
 	public static void main(String[] args) throws IOException {
 		// TODO Cargar la lista de restaurantes del fichero
 
-		File file = new File(RUTA_FICHERO);
+		File file = new File(RUTA_FICHERO);  // creamos objeto file
 		
 		if (file.exists()) {
 			System.out.println("FICHERO EXISTE!, a parsearlo");   //parsear: recorrerlo y clasificarlo   
@@ -62,6 +62,63 @@ public class MainRestaurante {
 			List<String> lineas = Files.readAllLines(path);  //leo todo el fichero en una linea
 			List<Restaurante> listRest = cargarRestaurantes(lineas);
 			System.out.println("la lista tiene " +  listRest.size() + " restaurantes");
+			
+			mostrarRestaurantes(listRest);    //mostrar todos los restaurantes
+			
+			// añadimos un nuevo restaurante 		
+			Restaurante restNuevo = new Restaurante();
+			restNuevo.setNombre("McDonadls");
+			restNuevo.setDireccion("MC Donadls Plza de la Marina 2");
+			restNuevo.setWeb("www.mcdonalds.com");
+			restNuevo.setFichaGoogle("https://goo.gl/maps/DUmVjnSZeX6Y9n448");
+			restNuevo.setLatitud(36.7184846f);
+			restNuevo.setLongitud(-4.4909181f);
+			restNuevo.setBarrio("centro");
+			restNuevo.setEspecialidades(List.of("hamburguesas", "patas fritas", "helados"));
+			
+			
+			// buscar restaurante en este caso el que sea listRest numero 4
+			Restaurante r5 = listRest.get(4);
+			boolean esta = buscarRestaurantes(listRest, r5);
+			System.out.println("R5 esta está en la lista " + esta);
+			
+			esta = buscarRestaurantes(listRest, restNuevo);
+			System.out.println(esta);
+			
+			//Busqueda por Especialidades
+			List<Restaurante> nombreEspecialidades  = listRest;
+			String busqueda = "helados1";
+			busqueda = busqueda.trim();
+			nombreEspecialidades = buscarPorEspecialidades(listRest, busqueda);
+			if (!nombreEspecialidades.isEmpty()) {
+				System.out.println("Restaurantes que incluyen esta especialidad" + busqueda + ": " + nombreEspecialidades.toString());
+			} else {
+				System.out.println("No hay restaurantes con esa especialidad.");
+			}
+			
+			
+			
+			// busqueda por Nombre
+			List<Restaurante> nombreRestaurantes = listRest;
+			busqueda = "McDonadlsXX";
+			nombreRestaurantes = buscarPorNombre(listRest, busqueda);
+			if(!nombreRestaurantes.isEmpty()) {
+				System.out.println(nombreRestaurantes.toString() + "\n");
+			} else {
+				System.out.println("No hay restaurantes con ese nombre.");
+			}
+			
+			//busqueda por barrio
+			List<Restaurante> listBarrios = listRest;
+			busqueda = "centro1";
+			//System.out.println("Busqueda por el barrio " + busqueda + "\n");
+			listBarrios = buscarPorBarrio(listRest, busqueda);
+			if(!listBarrios.isEmpty()) {
+				System.out.println(listBarrios.toString() + "\n");
+			} else {
+				System.out.println("No hay restaurantes en ese barrio.");
+			}
+			
 			
 			//			for (String linea : lineas) {   //(recorrerá)para cada linea que esté en lineas(el fichero completo)
 //				System.out.println(linea);
@@ -71,6 +128,97 @@ public class MainRestaurante {
 			System.out.println("NO EXISTE fichero en esa ruta: ");
 		}
 		
+		
 	}
+	
+	public static void mostrarRestaurantes(List<Restaurante> lisRest) {  //metodo que muestra restaurantes
+		System.out.println("Mostrando restaurantes");
+		for (Restaurante r : lisRest) {  //hace loop con foreach
+			System.out.println(r.toString());
+		}
+	}
+	
+	public static boolean buscarRestaurantes(List<Restaurante> listRest, Restaurante restauranteBuscado) {  // metodo buscame esto en esta lista
+		boolean estaRestaurante = false;   // mejor practica poner los booleanos a false y los int a 0 y los objetos a null.
+		int pos_actual = 0;
+		int longitud = listRest.size();
+		
+		Restaurante restauranteAux = null;
+		
+		while (pos_actual < longitud  && !estaRestaurante) {
+			restauranteAux = listRest.get(pos_actual);
+			if(estaRestaurante = restauranteAux.equals(restauranteBuscado)) {
+				System.out.println(restauranteAux);
+			}
+			pos_actual = pos_actual + 1;
+		}
+		
+		return estaRestaurante;
+		
+	}
+	
+	public static List<Restaurante> buscarPorEspecialidades(List<Restaurante> nombreRestaurantes, String busquedaEspecialidades) {
+		//boolean estaNombre = false;
+		
+		List<Restaurante> restaurantesEncontrados = new ArrayList<Restaurante>();
+		
+	//	if (restaurantesEncontrados.isEmpty()) {
+	//		System.out.println("No se han encontrado restaurantes con el nombre que estas buscando.");
+	//	} else {
+		System.out.println("Restaurantes encontrados");
+			for(Restaurante restaurante : nombreRestaurantes) {
+				
+				if(restaurante.getEspecialidades().contains(busquedaEspecialidades)) { 
+					//System.out.println(restaurante.getNombre());
+					restaurantesEncontrados.add(restaurante);
+				}
+	//		}
+		}
+		 return restaurantesEncontrados;
+	}
+	
+	
+	public static List<Restaurante> buscarPorNombre(List<Restaurante> nombreRestaurantes, String busquedaNombre) {
+		boolean estaNombre = false;
+		
+		List<Restaurante> restaurantesEncontrados = new ArrayList<Restaurante>();
+		
+	//	if (restaurantesEncontrados.isEmpty()) {
+	//		System.out.println("No se han encontrado restaurantes con el nombre que estas buscando.");
+	//	} else {
+		System.out.println("Restaurantes encontrados");
+			for(Restaurante restaurante : nombreRestaurantes) {
+				
+				if(estaNombre = restaurante.getNombre().equals(busquedaNombre)) {
+					//System.out.println(restaurante.getNombre());
+					restaurantesEncontrados.add(restaurante);
+				}
+	//		}
+		}
+		 return restaurantesEncontrados;
+	}
+		
+	public static List<Restaurante> buscarPorBarrio(List<Restaurante> nombreBarrios, String busquedaPorBarrio) {
+		boolean estaNombre = false;
+		
+		List<Restaurante> restaurantesEncontrados = new ArrayList<Restaurante>();
+		
+	//	if (restaurantesEncontrados.isEmpty()) {
+	//		System.out.println("No se han encontrado restaurantes con el nombre que estas buscando.");
+	//	} else {
+		System.out.println("Restaurantes encontrados por Barrio");
+			for(Restaurante restaurante : nombreBarrios) {
+				
+				if(estaNombre = restaurante.getBarrio().equals(busquedaPorBarrio)) {
+					//System.out.println(restaurante.getNombre());
+					restaurantesEncontrados.add(restaurante);
+				}
+	//		}
+		}
+		 return restaurantesEncontrados;
+	}
+		
+		
+	}
+	
 
-}
