@@ -88,7 +88,7 @@ public class MainRestaurante {
 			//Busqueda por Especialidades
 			List<Restaurante> nombreEspecialidades  = listRest;
 			String busqueda = "helados1";
-			busqueda = busqueda.trim();
+			//busqueda = busqueda.trim();
 			nombreEspecialidades = buscarPorEspecialidades(listRest, busqueda);
 			if (!nombreEspecialidades.isEmpty()) {
 				System.out.println("Restaurantes que incluyen esta especialidad" + busqueda + ": " + nombreEspecialidades.toString());
@@ -159,20 +159,16 @@ public class MainRestaurante {
 	
 	public static List<Restaurante> buscarPorEspecialidades(List<Restaurante> nombreRestaurantes, String busquedaEspecialidades) {
 				
-		List<Restaurante> restaurantesEncontrados = new ArrayList<Restaurante>();
-		//List<Restaurante> restaurantesEncontrados = null;
-		//List<String> listaEspecialidadesActual = null;
-		
+		List<Restaurante> restaurantesEncontrados = null;
+		restaurantesEncontrados =  new ArrayList<>();
+		List<String> listaEspecialidadesActual = null;
+				
 		System.out.println("Restaurantes encontrados");
-			for(Restaurante restaurante : nombreRestaurantes) {  //Obtengo especialidades
 		
-				// listaEspecialidadesActual = restaurante.getEspecialidades();
-				if(restaurante.getEspecialidades().contains(busquedaEspecialidades)) { 
-					//System.out.println(restaurante.getNombre());
-					restaurantesEncontrados.add(restaurante);
-				}
-	//		}
-		}
+			for(Restaurante restaurante : nombreRestaurantes) {  //Obtengo especialidades
+				restaurantesEncontrados.add(restaurante);
+			}
+	
 		 return restaurantesEncontrados;
 	}
 	
