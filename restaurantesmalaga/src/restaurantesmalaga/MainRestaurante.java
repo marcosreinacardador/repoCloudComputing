@@ -158,16 +158,15 @@ public class MainRestaurante {
 	}
 	
 	public static List<Restaurante> buscarPorEspecialidades(List<Restaurante> nombreRestaurantes, String busquedaEspecialidades) {
-		//boolean estaNombre = false;
-		
-		List<Restaurante> restaurantesEncontrados = new ArrayList<Restaurante>();
-		
-	//	if (restaurantesEncontrados.isEmpty()) {
-	//		System.out.println("No se han encontrado restaurantes con el nombre que estas buscando.");
-	//	} else {
-		System.out.println("Restaurantes encontrados");
-			for(Restaurante restaurante : nombreRestaurantes) {
 				
+		List<Restaurante> restaurantesEncontrados = new ArrayList<Restaurante>();
+		//List<Restaurante> restaurantesEncontrados = null;
+		//List<String> listaEspecialidadesActual = null;
+		
+		System.out.println("Restaurantes encontrados");
+			for(Restaurante restaurante : nombreRestaurantes) {  //Obtengo especialidades
+		
+				// listaEspecialidadesActual = restaurante.getEspecialidades();
 				if(restaurante.getEspecialidades().contains(busquedaEspecialidades)) { 
 					//System.out.println(restaurante.getNombre());
 					restaurantesEncontrados.add(restaurante);
@@ -179,8 +178,7 @@ public class MainRestaurante {
 	
 	
 	public static List<Restaurante> buscarPorNombre(List<Restaurante> nombreRestaurantes, String busquedaNombre) {
-		boolean estaNombre = false;
-		
+				
 		List<Restaurante> restaurantesEncontrados = new ArrayList<Restaurante>();
 		
 	//	if (restaurantesEncontrados.isEmpty()) {
@@ -189,7 +187,7 @@ public class MainRestaurante {
 		System.out.println("Restaurantes encontrados");
 			for(Restaurante restaurante : nombreRestaurantes) {
 				
-				if(estaNombre = restaurante.getNombre().equals(busquedaNombre)) {
+				if(restaurante.getNombre().equals(busquedaNombre)) {
 					//System.out.println(restaurante.getNombre());
 					restaurantesEncontrados.add(restaurante);
 				}
@@ -199,8 +197,7 @@ public class MainRestaurante {
 	}
 		
 	public static List<Restaurante> buscarPorBarrio(List<Restaurante> nombreBarrios, String busquedaPorBarrio) {
-		boolean estaNombre = false;
-		
+				
 		List<Restaurante> restaurantesEncontrados = new ArrayList<Restaurante>();
 		
 	//	if (restaurantesEncontrados.isEmpty()) {
@@ -209,7 +206,7 @@ public class MainRestaurante {
 		System.out.println("Restaurantes encontrados por Barrio");
 			for(Restaurante restaurante : nombreBarrios) {
 				
-				if(estaNombre = restaurante.getBarrio().equals(busquedaPorBarrio)) {
+				if(restaurante.getBarrio().equals(busquedaPorBarrio)) {
 					//System.out.println(restaurante.getNombre());
 					restaurantesEncontrados.add(restaurante);
 				}
