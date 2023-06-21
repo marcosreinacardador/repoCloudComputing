@@ -1,96 +1,104 @@
-McDonadls
-MC Donadls Plza de la Marina 1
+McDonalds10
+McDonalds Plaza de la Marina
 www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
+https://goo.gl/maps/yzKMGxkYMzZBMPfD7
+36.7313424
+-4.4578394
 centro
-hamburguesas, patas fritas, helados
-McDonadls
-MC Donadls Plza de la Marina 2
+hamburguesas, patatas fritas, helados
+McDonalds5
+McDonalds Plaza de la Marina
 www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
+https://goo.gl/maps/yzKMGxkYMzZBMPfD7
+36.7313424
+-4.4578394
 centro
-hamburguesas, patas fritas, helados
-McDonadls
-MC Donadls Plza de la Marina 3
-www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
-centro1
-hamburguesas, patas fritas, helados
-McDonadlsXX
-MC Donadls Plza de la Marina 4
-www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
+hamburguesas, patatas fritas, helados
+KFC
+KFC Calle Larios
+www.kfc.com
+https://goo.gl/maps/yzKMGxkYMzZBMPfD7
+36.7313424
+-4.4578394
 centro
-hamburguesas, patas fritas, helados1
-McDonadls
-MC Donadls Plza de la Marina 5
+platos variados, bebidas, postres
+McDonalds15
+McDonalds Plaza de la Marina
 www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
+https://goo.gl/maps/yzKMGxkYMzZBMPfD7
+36.7313424
+-4.4578394
 centro
-hamburguesas, patas fritas, helados
-McDonadls
-MC Donadls Plza de la Marina 6
+hamburguesas, patatas fritas, helados
+McDonalds12
+McDonalds Plaza de la Marina
 www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
+https://goo.gl/maps/yzKMGxkYMzZBMPfD7
+36.7313424
+-4.4578394
 centro
-hamburguesas, patas fritas, helados1
-McDonadlsXX
-MC Donadls Plza de la Marina 7
+hamburguesas, patatas fritas, helados
+McDonalds33
+McDonalds Plaza de la Marina
 www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
+https://goo.gl/maps/yzKMGxkYMzZBMPfD7
+36.7313424
+-4.4578394
 centro
-hamburguesas, patas fritas, helados
-McDonadls
-MC Donadls Plza de la Marina 8
+hamburguesas, patatas fritas, helados
+McDonalds28
+McDonalds Plaza de la Marina
 www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
+https://goo.gl/maps/yzKMGxkYMzZBMPfD7
+36.7313424
+-4.4578394
 centro
-hamburguesas, patas fritas, helados1
-McDonadls
-MC Donadls Plza de la Marina 9
+hamburguesas, patatas fritas, helados
+McDonalds1
+McDonalds Plaza de la Marina
 www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
-centro1
-hamburguesas, patas fritas, helados
-McDonadls
-MC Donadls Plza de la Marina 10
-www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
+https://goo.gl/maps/yzKMGxkYMzZBMPfD7
+36.7313424
+-4.4578394
 centro
-hamburguesas, patas fritas, helados
-McDonadls
-MC Donadls Plza de la Marina 11
+hamburguesas, patatas fritas, helados
+KFC
+KFC Plaza Mayor
+www.kfc.com
+https://goo.gl/maps/yzKMGxkYMzZBMPfD7
+36.7313424
+-4.4578394
+extraradio
+platos variados, bebidas, frutas, postres
+McDonalds
+McDonalds Plaza Mayor
 www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
-centro
-hamburguesas, patas fritas, helados
-McDonadls
-MC Donadls Plza de la Marina 4
+https://goo.gl/maps/yzKMGxkYMzZBMPfD7
+36.7313424
+-4.4578394
+extraradio
+hamburguesas, patatas fritas, helados
+McDonalds
+McDonalds Plaza de la Marina
 www.mcdonalds.com
-https://goo.gl/maps/DUmVjnSZeX6Y9n448
-36.7184846
--4.4909181
+https://goo.gl/maps/yzKMGxkYMzZBMPfD7
+36.7313424
+-4.4578394
 centro
-hamburguesas, patas fritas, helados
+hamburguesas, patatas fritas, helados, frutas
+McDonalds
+McDonalds Plaza de la Marina
+www.mcdonalds.com
+https://goo.gl/maps/yzKMGxkYMzZBMPfD7
+36.7313424
+-4.4578394
+centro
+hamburguesas, patatas fritas, helados
+McDonalds
+McDonalds Plaza de la Marina
+www.mcdonalds.com
+https://goo.gl/maps/yzKMGxkYMzZBMPfD7
+36.7313424
+-4.4578394
+centro
+hamburguesas, patatas fritas, helados

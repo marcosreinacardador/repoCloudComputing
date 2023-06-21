@@ -3,7 +3,7 @@ package restaurantesmalaga.model;
 import java.util.Arrays;
 import java.util.List;
 
-public class Restaurante {
+public class Restaurante implements Comparable<Restaurante> {
 
 	// id¿?
 	private String nombre;	
@@ -15,6 +15,7 @@ public class Restaurante {
 	private float longitud;
 	private String barrio;
 	private List<String> especialidades;
+	private double precioMedio;
 	
 	
 	//Contructor Restaurante vacío
@@ -25,7 +26,7 @@ public class Restaurante {
 		
     //Constructor de parámetros
 	public Restaurante(String nombre, String direccion, String web, String fichaGoogle, float latitud, float longitud,
-			String barrio, String ... especialidades) {  // varargs
+			String barrio, double precioMedio, String ... especialidades) {  // varargs
 		super();
 		this.nombre = nombre;
 		this.direccion = direccion;
@@ -34,7 +35,9 @@ public class Restaurante {
 		this.latitud = latitud;
 		this.longitud = longitud;
 		this.barrio = barrio;
+		this.precioMedio = precioMedio;
 		this.especialidades = Arrays.asList(especialidades);
+		
 	}
 	
 	
@@ -88,6 +91,15 @@ public class Restaurante {
 		this.especialidades = especialidades;
 	}
 
+	public double getPrecioMedio() {
+		return precioMedio;
+	}
+
+
+	public void setPrecioMedio(double precioMedio) {
+		this.precioMedio = precioMedio;
+	}
+
 
 	@Override
 	public String toString() {
@@ -99,7 +111,8 @@ public class Restaurante {
 				" latitud= " + latitud + "\n" + 
 				" longitud= " + longitud + "\n" + 
 				" barrio= " + barrio + "\n" + 
-				" especialidades= " + especialidades + "\n";
+				" especialidades= " + especialidades + "\n" + 
+				" precio medio= " + precioMedio;
 	}
 	
 	@Override
@@ -116,6 +129,13 @@ public class Restaurante {
 		}
 		
 		return iguales;
+	}
+
+	//ordenar por precio medio
+	@Override
+	public int compareTo(Restaurante o) {   //Compara el objeto this y el objeto Restaurante.
+		// TODO Auto-generated method stub
+		return (int) (this.getPrecioMedio()-o.getPrecioMedio());
 	}
 	
 }
