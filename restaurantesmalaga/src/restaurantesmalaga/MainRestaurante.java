@@ -133,7 +133,7 @@ public class MainRestaurante {
 			
 			//busqueda por barrio
 			List<Restaurante> listBarrios = listRest;
-			busqueda = "centro1";
+			busqueda = "Torremolinos";
 			//System.out.println("Busqueda por el barrio " + busqueda + "\n");
 			listBarrios = buscarPorBarrio(listRest, busqueda);
 			if(!listBarrios.isEmpty()) {
@@ -184,6 +184,11 @@ public class MainRestaurante {
 		return estaRestaurante;
 		
 	}
+
+//Bucar por especialidad
+//Buscar por nombre
+//Busqueda por barrio
+	
 	
 	public static List<Restaurante> buscarPorEspecialidades(List<Restaurante> nombreRestaurantes, String busquedaEspecialidades) {
 				
@@ -209,17 +214,29 @@ public class MainRestaurante {
 		}
 	}
 	
-	public static List<Restaurante> buscarPorNombre(List<Restaurante> nombreRestaurantes, String busquedaNombre) {
+	public static List<Restaurante> buscarPorNombre(List<Restaurante> nombreRestaurantes, String nombre) {
 				
+//		{
+//			List<Restaurante> listaRestNombres = null;
+//			
+//				listaRestNombres = new ArrayList<Restaurante>();
+//				for (Restaurante r :listaRestNombres)
+//				{
+//					//si coincide el nombre, la añado
+//					if (r.getNombre().indexOf(nombre)!=-1)
+//					{
+//						listaRestNombres.add(r);
+//					}
+//				}
+//			
+//			return listaRestNombres;
+//		}
 		List<Restaurante> nombreRest = new ArrayList<Restaurante>();
 		
-	//	if (restaurantesEncontrados.isEmpty()) {
-	//		System.out.println("No se han encontrado restaurantes con el nombre que estas buscando.");
-	//	} else {
 		System.out.println("Restaurantes encontrados por Nombre");
 			for(Restaurante restaurante : nombreRestaurantes) {
 				
-				if(restaurante.getNombre().equals(busquedaNombre)) {
+				if(restaurante.getNombre().indexOf(nombre)!=-1) {
 					//System.out.println(restaurante.getNombre());
 					nombreRest.add(restaurante);
 				}
@@ -228,28 +245,38 @@ public class MainRestaurante {
 		 return nombreRestaurantes;
 	}
 	
+	
+	
 	// programacion funcional con foreach
 	public static void mostrarRestaurantesLambda(List<Restaurante> listRest) {
 		listRest.forEach(restaurante->System.out.println(restaurante));
 	}
 		
-	public static List<Restaurante> buscarPorBarrio(List<Restaurante> nombreBarrios, String busquedaPorBarrio) {
-				
-		List<Restaurante> nombreRest = new ArrayList<Restaurante>();
+	public static List<Restaurante> buscarPorBarrio(List<Restaurante> lRestaurantes, String barrio) {
+//		{
+//			List<Restaurante> listaRestBarrios = null;
+//			listaRestBarrios = new ArrayList<>();
+//
+//			  for (Restaurante restActual : lRestaurantes) {
+//			    if (restActual.getBarrio().equalsIgnoreCase(barrio)) {
+//			      listaRestBarrios.add(restActual);
+//			    }
+//			  }
+//			return listaRestBarrios;
+//		}
 		
-	//	if (restaurantesEncontrados.isEmpty()) {
-	//		System.out.println("No se han encontrado restaurantes con el nombre que estas buscando.");
-	//	} else {
-		System.out.println("Restaurantes encontrados por Barrio");
-			for(Restaurante restaurante : nombreBarrios) {
-				
-				if(restaurante.getBarrio().equals(busquedaPorBarrio)) {
+		List<Restaurante> listaRestBarrios = null;
+		listaRestBarrios = new ArrayList<>();
+		
+		System.err.println("Restaurantes encontrados por Barrio");
+			for(Restaurante restActual : lRestaurantes) {
+				if(restActual.getBarrio().equalsIgnoreCase(barrio)) {
 					//System.out.println(restaurante.getNombre());
-					nombreRest.add(restaurante);
+					listaRestBarrios.add(restActual);
 				}
 	//		}
 		}
-		 return nombreBarrios;
+		 return listaRestBarrios;
 	}
 	
 	
