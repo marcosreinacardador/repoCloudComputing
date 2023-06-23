@@ -83,8 +83,8 @@ public class MainRestaurante {
 			
 			mostrarRestaurantes(listRest);    //mostrar todos los restaurantes
 			
-			System.err.println("\nLISTA ORDENADA DE RESTAURANTES");
-			ComparadorRestaurantes cr = new ComparadorRestaurantes();
+			System.err.println("\nLISTA ORDENADA DE RESTAURANTES por nombre");
+			ComparadorRestaurantes cr = new ComparadorRestaurantes(); //total
 			Collections.sort(listRest, cr);
 			
 			// añadimos un nuevo restaurante 		
