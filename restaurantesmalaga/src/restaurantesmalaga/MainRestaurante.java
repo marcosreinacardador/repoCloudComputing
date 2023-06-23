@@ -48,7 +48,7 @@ public class MainRestaurante {
 						numAleatorio = 20 + random.nextDouble(100);
 						return numAleatorio;
 					};
-					restauranteAux.setPrecioMedio(Math.round(generaPrecioMedio.get()));
+					restauranteAux.setPrecioMedio(generaPrecioMedio.get());
 					
 			case 9:	
 					String[] especialidades = linea.split(",");  //troceo espe1, espe2, espe3
