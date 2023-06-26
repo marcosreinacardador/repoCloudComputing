@@ -67,12 +67,17 @@ private static final String RUTA_FICHERO = "restaurantes.txt";
 			
 			// calcula la media de los restaurantes de cada barrio
 			System.out.println("Mostrando la media de restaurantes por cada barrio");
-			obtenerMediaRestaurantesPorBarrio(mapaRestaurantesPorBarrios);
+//			obtenerMediaRestaurantesPorBarrio(mapaRestaurantesPorBarrios);
+			float precioMedio = obtenerPrecioMedio ("Centro", mapaRestaurantesPorBarrios);
+			System.out.println("El precio medio es " + precioMedio);
+			
 			System.out.println("\n\n");
 			
 			// nos indica cual es el restaurante mas barato de cada barrio
 			System.out.println("Mostrando los más baratos de cada barrio");
-			listarRestaurantesMasBaratos(mapaRestaurantesPorBarrios);
+//			listarRestaurantesMasBaratos(mapaRestaurantesPorBarrios);
+			Restaurante restauranteMasBarato = obtenerMasBarato(mapaRestaurantesPorBarrios);
+			System.out.println("El restaurante más barato es " + restauranteMasBarato);
 			System.out.println("\n\n");
 			
 		}
@@ -101,6 +106,23 @@ private static final String RUTA_FICHERO = "restaurantes.txt";
 			System.out.println("BARRIO =  " + barrio + " **** cantidad resturantes: " + lrb.size() + "  total: " + total + "  la media es: " + total/lrb.size());
 		}
 	}
+	
+	// el mismo de precio medio hecho en clase
+	public static float obtenerPrecioMedio(String barrio, Map<String, List<Restaurante>> mr) {
+		float precioMedio = 0;
+		int total = 0;
+		
+		List<Restaurante> lrb = mr.get(barrio);
+		for(Restaurante r : lrb) {
+			total = total + r.getPrecioMedio();
+		}
+		
+		precioMedio = total/lrb.size();
+		
+		return precioMedio;
+	}
+	
+	
 	
 	// TODO Haced un método que reciba el mapa de restaurantes y me diga el restaurante mas barato de todos los barrios.
 	
@@ -145,6 +167,29 @@ private static final String RUTA_FICHERO = "restaurantes.txt";
 		}
 	}
 	
+	
+	//hecho por el profesor el mas barato
+	
+	public static Restaurante obtenerMasBarato(Map<String, List<Restaurante>> mr) {
+		
+		Restaurante restauranteMasBarato = null;
+		int precioMenor = 500000;
+		Set<String> cjtoBarrios = mr.keySet();
+		
+		for(String barrio : cjtoBarrios) {  //recorro barrios
+			
+			List<Restaurante> lra = mr.get(barrio);
+			
+			for (Restaurante rest : lra) {    // restaurante de cada barrio
+				if(rest.getPrecioMedio()<precioMenor) {
+					precioMenor = rest.getPrecioMedio();
+					restauranteMasBarato = rest;
+				}
+			}
+		}
+		
+		return restauranteMasBarato;
+	}
 	
 	private static void mostrarMapa (Map<String, List<Restaurante>> mapa)
 	{
