@@ -2,6 +2,7 @@ package edu.arealance.nube.service;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,7 @@ import edu.arealance.nube.repository.entity.Restaurante;
 @Service
 public class RestauranteServiceImpl implements RestauranteService{
 	
+	@Autowired   //hace falta inyectar
 	RestauranteRepository restauranteRepository;   //instancia de la base de datos
 
 	@Override

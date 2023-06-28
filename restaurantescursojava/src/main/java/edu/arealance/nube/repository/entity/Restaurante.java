@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class Restaurante {
 
 	@Id  // Indica a spring que éste será la clave primaria
-	@GeneratedValue(strategy = GenerationType.IDENTITY)  //autoincemento en Mysql
+	@GeneratedValue(strategy = GenerationType.IDENTITY)  //autoincremento en Mysql
 	private Long id;
 	
 	private String nombre;
