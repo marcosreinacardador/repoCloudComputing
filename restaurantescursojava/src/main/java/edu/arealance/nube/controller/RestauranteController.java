@@ -112,7 +112,9 @@ public class RestauranteController {
 	@PutMapping("/{id}")
 	public ResponseEntity<?> modificaRestaurante(@RequestBody Restaurante restaurante, @PathVariable Long id){  //deserializa por recibir un texto
 		ResponseEntity<?> responseEntity = null;   // representa el mensaje http y devuelve cualquier cosa
-		
+			
+//			this.restauranteService.modificarRestaurante(id, restaurante);
+			
 		return responseEntity;	
 	}
 	
