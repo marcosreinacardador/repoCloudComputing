@@ -3,7 +3,10 @@ package edu.arealance.nube.controller;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.arealance.nube.repository.entity.Restaurante;
@@ -41,6 +45,8 @@ public class RestauranteController {
 	
 	@Autowired  // hace falta inyectar
 	RestauranteService restauranteService;  // viene llamado desde RestauranteServiceImple 
+	
+	Logger logger = LoggerFactory.getLogger(RestauranteController.class);
 
 	@GetMapping("/test") // http://localhost:8081/restaurante/test
 	public Restaurante obtenerRestauranteTest() { // objeto dinamico, spring ha hecho un new
@@ -48,6 +54,9 @@ public class RestauranteController {
 		Restaurante restaurante = null;
 
 		System.out.println("Llamando a obtenerRestauranteTest");
+		
+		logger.debug("estoy en ObtenerRestauranteTest");
+				
 		restaurante = new Restaurante(1l, "Martinete", "Carlos Haya 33", "Carranque", "www.martinete.org",  // Estado TRANSIENT
 				"http://dkdkskksdk.coe", 33.65f, -2.3f, 10, "gazpachuelo", "paella", "sopa de marisco",
 				LocalDateTime.now());
@@ -111,12 +120,20 @@ public class RestauranteController {
 //	  PUT -> modificar un restaurante que ya existe  http://localhost:8081/restaurante/id (Body Restaurante)
 	@PutMapping("/{id}")
 	public ResponseEntity<?> modificaRestaurante(@RequestBody Restaurante restaurante, @PathVariable Long id){  //deserializa por recibir un texto
+		
 		ResponseEntity<?> responseEntity = null;   // representa el mensaje http y devuelve cualquier cosa
-			
-//			this.restauranteService.modificarRestaurante(id, restaurante);
+		Optional<Restaurante> opRestaurante = null;
+		
+		opRestaurante = this.restauranteService.modificarRestaurante(id, restaurante);
+		if(opRestaurante.isPresent()) {
+			Restaurante rm = opRestaurante.get();
+			responseEntity = ResponseEntity.ok(rm);  // 200 esta correcto
+		} else {
+			responseEntity = ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // 404 not found error del cliente
+		}
 			
 		return responseEntity;	
-	}
+	} 
 	
 //	  DELETE -> borra un restaurante (por ID) http://localhost:8081/restaurante/id
 	@DeleteMapping("/{id}")
@@ -130,6 +147,53 @@ public class RestauranteController {
 		
 		return responseEntity;
 	}
+	
+	
+	// Obtener restaurantes en un rango de precio   http://localhost:8081/restaurante/8/25
+	@GetMapping("/buscarPorPrecio/{min}/{max}")
+	public ResponseEntity<?> listaPorRangoPrecios(@PathVariable int min, @PathVariable int max){
+		ResponseEntity<?> responseEntity = null;   // representa el mensaje http y devuelve cualquier cosa
+			Iterable<Restaurante> itRest = null;
+			
+			itRest = this.restauranteService.obtenerPorRangoPrecio(min, max);
+			responseEntity = ResponseEntity.ok(itRest); 
+		
+		return responseEntity;
+		
+	}
+	
+// otra forma de hacerlo con parametros
+//	@GetMapping("/buscarPorPrecio")   
+//	public ResponseEntity<?> listarPorRangoPrecio (
+//			@RequestParam(name = "preciomin") int preciomin,
+//			@RequestParam(name = "preciomax") int preciomax)
+//	{
+//		ResponseEntity<?> responseEntity = null;
+//		Iterable<Restaurante> lista_Restaurantes = null;
+//			
+//			lista_Restaurantes = this.restauranteService.buscarPorRangoPrecio(preciomin, preciomax);
+//			responseEntity = ResponseEntity.ok(lista_Restaurantes);
+//		
+//		return responseEntity;
+//	}
+//	
+	
+	// Buscar por especialidad
+	@GetMapping("/BuscarCualquierCosa/{dato}")
+//	@GetMapping("/BuscarCualquierCosa")  tambien vale hacerlo con parametros
+//	public ResponseEntity<?> listarNombreBarrioOEspecialidad(@RequestParam( name = dato) String dato){
+	public ResponseEntity<?> listarNombreBarrioOEspecialidad(@PathVariable String dato){
+		ResponseEntity<?> responseEntity = null;   // representa el mensaje http y devuelve cualquier cosa
+		Iterable<Restaurante> itRest = null;
+		
+			itRest = this.restauranteService.listarNombreBarrioOEspecialidad(dato);
+			responseEntity = ResponseEntity.ok(itRest); 
+		
+	return responseEntity;
+		
+	}
+	
+	
 	
 	
 }

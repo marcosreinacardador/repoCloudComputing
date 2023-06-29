@@ -27,4 +27,10 @@ public interface RestauranteService {
 	// que la consulta.
 	Optional<Restaurante> modificarRestaurante(Long id, Restaurante restaurante);
 	
+	// Cogemos le precimedio minimo y preciomedio maximo  del restaurante y nos
+	// devuelve los restaurantes con el precio min y precio max
+	Iterable<Restaurante> obtenerPorRangoPrecio(int min, int max);   //aqui cambiamos el nombre del servicio que se ha copiado del repositorio.
+	
+	Iterable<Restaurante> listarNombreBarrioOEspecialidad(String clave);
+	
 }
