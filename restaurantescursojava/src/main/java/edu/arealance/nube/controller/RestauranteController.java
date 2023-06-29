@@ -71,11 +71,12 @@ public class RestauranteController {
 		ResponseEntity<?> responseEntity = null;   // representa el mensaje http y devuelve cualquier cosa
 		Iterable<Restaurante> lista_Restaurantes = null;  // con iterable nos da la lista que llama que es servicio
 		
+			
 //			String saludo = "Hola";
 //			saludo.charAt(10);
 			lista_Restaurantes = this.restauranteService.consultarTodos();  // dame la lista de restaurantes y me da el servicio
 			responseEntity = ResponseEntity.ok(lista_Restaurantes);  // con esto estamos construyendo el objeto de vuelta que es responseEntity
-		
+			//logger.info("Si acabo de listar todos los registros.");
 		return responseEntity;
 	}
 	

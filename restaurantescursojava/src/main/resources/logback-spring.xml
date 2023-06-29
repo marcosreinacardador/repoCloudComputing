@@ -9,6 +9,6 @@
 		<appender-ref ref="CONSOLE" />
 	</root>
 	<!-- thresold / umbral -->
-	<logger name="edu.arelance.nube" level="DEBUG"></logger>
+	<logger name="edu.arealance.nube" level="DEBUG"></logger>
 	<!-- <logger name="org.hibernate" level="TRACE"></logger> -->
 </configuration>
