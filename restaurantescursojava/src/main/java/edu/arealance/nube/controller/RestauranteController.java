@@ -2,6 +2,9 @@ package edu.arealance.nube.controller;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
+import java.util.List;
+
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.DeleteMapping;
 //import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import edu.arealance.nube.repository.entity.Restaurante;
 import edu.arealance.nube.service.RestauranteService;
@@ -64,6 +70,21 @@ public class RestauranteController {
 		return restaurante;
 	}
 	
+	private ResponseEntity<?> generarRespuestaErroresValidacion(BindingResult bindingResult){
+		
+		ResponseEntity<?> responseEntity = null;
+		List<ObjectError> listaErrores = null;
+			
+			listaErrores = bindingResult.getAllErrors();
+			// vamos a imprimir los errores por el log
+			listaErrores.forEach(e -> logger.error(e.toString()));
+			responseEntity = ResponseEntity.status(HttpStatus.BAD_REQUEST).body(listaErrores);
+		
+		return responseEntity;
+	}
+	
+	
+	
 //	GET -> consultar TODOS GET http://localhost:8081/restaurante
 	@GetMapping
 	public ResponseEntity<?> listarTodos() {
@@ -88,17 +109,21 @@ public class RestauranteController {
 		ResponseEntity<?> responseEntity = null;   // representa el mensaje http y devuelve cualquier cosa
 		Optional<Restaurante> or = null;
 		
+			logger.debug("En ListarPorID");
+		
 			or = this.restauranteService.consultarRestaurante(id);
 		
 				if(or.isPresent()) {  // si esta presente nos dvuelve un booleano
 					// la consulta ha recuperado un registro
 					Restaurante restauranteLeido =  or.get();
+					logger.debug("Recuperado el registro" + restauranteLeido);
 					responseEntity = ResponseEntity.ok().body(restauranteLeido);
 				} else {
 					// la consulta NO ha recuperado un registro
 				responseEntity = ResponseEntity.noContent().build();  // el el 204   .build() construir un body con el cuerpo vacio
+				logger.debug("El restaurante con " + id + " no existe");
 			}
-		
+		logger.debug("Hemos salido ya de listarPorID" );
 		return responseEntity;	
 	}
 	
@@ -106,25 +131,40 @@ public class RestauranteController {
 //            trae el cuerpo que es el json y lo insertamos y devuelvo el nuevo objeto ya insertado
 	
 	@PostMapping
-	public ResponseEntity<?> insertarRestaurante(@RequestBody Restaurante restaurante){  //deserializa por recibir un texto
-		
+	public ResponseEntity<?> insertarRestaurante(@Valid  @RequestBody Restaurante restaurante, BindingResult bindingResult){  //deserializa por recibir un texto
+												
 		ResponseEntity<?> responseEntity = null;   // representa el mensaje http y devuelve cualquier cosa
 		Restaurante restauranteNuevo = null;
-		
+
+		//TODO validar
+		if(bindingResult.hasErrors()) {
+			logger.debug("Errores en la entrada POST");
+			responseEntity = generarRespuestaErroresValidacion(bindingResult);
+		} else {
+			logger.debug("Sin errores en la entrada POST");
 			restauranteNuevo = this.restauranteService.altaRestaurante(restaurante);
 			responseEntity =  ResponseEntity.status(HttpStatus.CREATED).body(restaurante);  // 201 es porque se ha creado
-		
+		}
 		return responseEntity;	
-	}
-		
+		}
+	
 	
 //	  PUT -> modificar un restaurante que ya existe  http://localhost:8081/restaurante/id (Body Restaurante)
 	@PutMapping("/{id}")
-	public ResponseEntity<?> modificaRestaurante(@RequestBody Restaurante restaurante, @PathVariable Long id){  //deserializa por recibir un texto
+	public ResponseEntity<?> modificaRestaurante(@Valid  @RequestBody Restaurante restaurante, @PathVariable Long id, BindingResult bindingResult){  //deserializa por recibir un texto
 		
 		ResponseEntity<?> responseEntity = null;   // representa el mensaje http y devuelve cualquier cosa
 		Optional<Restaurante> opRestaurante = null;
 		
+		
+		//TODO validar
+				if(bindingResult.hasErrors()) {
+					logger.debug("Errores en la entrada PUT");
+					responseEntity = generarRespuestaErroresValidacion(bindingResult);
+				} else {
+					logger.debug("Sin errores en la entrada PUT");
+				
+	
 		opRestaurante = this.restauranteService.modificarRestaurante(id, restaurante);
 		if(opRestaurante.isPresent()) {
 			Restaurante rm = opRestaurante.get();
@@ -132,9 +172,10 @@ public class RestauranteController {
 		} else {
 			responseEntity = ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // 404 not found error del cliente
 		}
-			
+				}		
 		return responseEntity;	
-	} 
+	 
+	}
 	
 //	  DELETE -> borra un restaurante (por ID) http://localhost:8081/restaurante/id
 	@DeleteMapping("/{id}")
